@@ -40,3 +40,14 @@
 .nav--logo {
   max-width: 300px;
 }
+
+body{
+  background-color: #ee9d11;
+}
+
+.comment{
+  border-radius: 64px;
+background: #ee9d11;
+box-shadow:  25px 25px 40px #ab710c,
+             -25px -25px 40px #ffc916;
+}
