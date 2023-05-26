@@ -46,7 +46,7 @@ for post in newest_post:
     except:
         print("End...")
 
-with open("comments.json", "w") as file:
+with open("sportitpod_frontend/src/comments.json", "w") as file:
     json.dump(comments, file, indent=4)
 
 print(comments)
