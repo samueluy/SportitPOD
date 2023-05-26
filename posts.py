@@ -38,16 +38,15 @@ for post in newest_post:
                 comment.author and comment.is_root
             ):  # has author and is not a reply to a comment
                 com = {
-                    "author": comment.author,
+                    "author": comment.author.name,
                     "body": comment.body,
                     "upvotes": comment.score,
                 }
                 comments.append(com)
-                # print(f"Comment: {comment.body}")
-                # print(f"Upvotes: {comment.score}")
-                # print("---")
     except:
         print("End...")
-        print(comments)
-        # print(comments)
+
+with open("comments.json", "w") as file:
+    json.dump(comments, file, indent=4)
+
 print(comments)
