@@ -37,9 +37,9 @@ const Timer = () => {
   };
 
   return (
-    <div>
-      <h1>Next POTD:</h1>
-      <p>{formatCountdown(countdown)}</p>
+    <div className="timer">
+      <h1 className="timer--head">Next POTD:</h1>
+      <p className="timer--cd">{formatCountdown(countdown)}</p>
     </div>
   );
 };

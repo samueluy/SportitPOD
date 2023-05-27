@@ -1,5 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
 .App {
   text-align: center;
+}
+.comment {
+  font-family: "Poppins", sans-serif; /* Apply the "Poppins" font */
+}
+
+.timer {
+  font-family: "Poppins", sans-serif; /* Apply the "Poppins" font */
 }
 
 .App-logo {
@@ -80,4 +89,8 @@ nav {
   color: #008000;
   font-weight: bold;
   margin-right: 8px;
+}
+
+.comment--body {
+  text-align: left;
 }
