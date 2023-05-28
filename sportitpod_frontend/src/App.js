@@ -1,8 +1,8 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
 import Navbar from "./components/Navbar";
 import Comments from "./components/Comment";
 import data from "./comments.json";
+import "./App.css";
 
 function App() {
   const comments = data.map((item) => {
@@ -14,7 +14,10 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {comments}
+      <div className="comments-container">
+        {comments.slice(0, Math.ceil(comments.length / 2))}
+        {comments.slice(Math.ceil(comments.length / 2))}
+      </div>
     </div>
   );
 }
