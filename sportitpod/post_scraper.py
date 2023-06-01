@@ -2,6 +2,7 @@ import praw
 import json
 import config
 
+print(config.client_secret)
 
 # Initialize the Reddit API client
 reddit = praw.Reddit(
@@ -25,7 +26,6 @@ newest_post = subreddit.search(
 )
 
 comments = []
-
 
 # Iterate over the posts and retrieve the comments
 for post in newest_post:
