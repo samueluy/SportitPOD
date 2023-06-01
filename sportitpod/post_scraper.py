@@ -1,22 +1,23 @@
 import praw
 import json
-from . import config
+#from . import config
+import os
 
 # Initialize the Reddit API client
 reddit = praw.Reddit(
-    client_id=config.client_id,
-    client_secret=config.client_secret,
-    user_agent=config.user_agent,
+    client_id=os.environ.get('client_id'),
+    client_secret=os.environ.get('client_secret'),
+    user_agent=os.environ.get('user_agent'),
 )
 
 # Define the subreddit you want to search in
-subreddit_name = config.subreddit_name
+subreddit_name = os.environ.get('subreddit_name')
 
 # Get the subreddit instance
 subreddit = reddit.subreddit(subreddit_name)
 
 # Define the flair you want to filter for
-flair_name = config.flair_name
+flair_name = os.environ.get('flair_name')
 
 # Get the posts with the specified flair in the subreddit
 newest_post = subreddit.search(
