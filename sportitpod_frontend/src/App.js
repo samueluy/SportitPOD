@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Comments from "./components/Comment";
+import Loading from "./components/Loading"
 import axios from "axios";
 import "./App.css";
 
@@ -23,7 +24,7 @@ function App() {
   console.log(data);
 
   if (!data || data.length === 0) {
-    return <div>Loading...</div>; // Render a loading state or handle the case when data is not available
+    return <Loading/>; // Render a loading state or handle the case when data is not available
   }
 
   const comments = data.map((item) => {

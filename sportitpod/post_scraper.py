@@ -38,7 +38,7 @@ def get_comments():
             post.comments.replace_more(limit=None)
             for comment in post.comments.list():
                 if (
-                    comment.author and comment.is_root
+                    comment.author and comment.is_root and comment.author.name != "sbpotdbot"
                 ):  # has author and is not a reply to a comment
                     com = {
                         "author": comment.author.name,
@@ -51,6 +51,5 @@ def get_comments():
 
     # with open("comments.json", "w") as file:
     #     json.dump(comments, file, indent=4)
-    print(type(comments))
     return comments
 
