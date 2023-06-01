@@ -122,7 +122,7 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "sportitpod_frontend/build/static"),
+    os.path.join(BASE_DIR, "sportitpod/build/static"),
 ]
 
 

@@ -49,7 +49,5 @@ def get_comments():
         except:
             print("End...")
 
-    # with open("comments.json", "w") as file:
-    #     json.dump(comments, file, indent=4)
     return comments
 
