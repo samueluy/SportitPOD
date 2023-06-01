@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Comments from "./components/Comment";
-import data from "./comments.json";
+import axios from "axios";
 import "./App.css";
 
 function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/get-data/");
+        setData(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(data);
+
+  if (!data || data.length === 0) {
+    return <div>Loading...</div>; // Render a loading state or handle the case when data is not available
+  }
+
   const comments = data.map((item) => {
     return (
-      <Comments author={item.author} body={item.body} upvotes={item.upvotes} />
+      <Comments key={item.id} author={item.author} body={item.body} upvotes={item.upvotes} />
     );
   });
 
