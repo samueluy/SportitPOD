@@ -26,5 +26,3 @@ def get_title():
 
     for post in newest_post:
         return (post.title)
-    # Iterate over the posts and retrieve the comments
-    #return newest_post.title

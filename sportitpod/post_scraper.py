@@ -1,8 +1,6 @@
 import praw
 import json
-import config
-
-print(config.client_secret)
+from . import config
 
 # Initialize the Reddit API client
 reddit = praw.Reddit(
@@ -25,28 +23,34 @@ newest_post = subreddit.search(
     f'flair_name:"{flair_name}"', sort="new", time_filter="day"
 )
 
-comments = []
+def get_title():
+    for post in newest_post:
+        return (post.title)
 
-# Iterate over the posts and retrieve the comments
-for post in newest_post:
-    try:
-        print(f"Post title: {post.title}")
-        print("Comments:")
-        post.comments.replace_more(limit=None)
-        for comment in post.comments.list():
-            if (
-                comment.author and comment.is_root
-            ):  # has author and is not a reply to a comment
-                com = {
-                    "author": comment.author.name,
-                    "body": comment.body,
-                    "upvotes": comment.score,
-                }
-                comments.append(com)
-    except:
-        print("End...")
+def get_comments(): 
+    comments = []
 
-with open("sportitpod_frontend/src/comments.json", "w") as file:
-    json.dump(comments, file, indent=4)
+    # Iterate over the posts and retrieve the comments
+    for post in newest_post:
+        try:
+            print(f"Post title: {post.title}")
+            print("Comments:")
+            post.comments.replace_more(limit=None)
+            for comment in post.comments.list():
+                if (
+                    comment.author and comment.is_root
+                ):  # has author and is not a reply to a comment
+                    com = {
+                        "author": comment.author.name,
+                        "body": comment.body,
+                        "upvotes": comment.score,
+                    }
+                    comments.append(com)
+        except:
+            print("End...")
 
-print(comments)
+    # with open("comments.json", "w") as file:
+    #     json.dump(comments, file, indent=4)
+    print(type(comments))
+    return comments
+
